@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #fef5e7;  /* 暖米色 */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.container {
+    max-width: 480px;
+    width: 100%;
+    background: white;
+    border-radius: 32px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 32px 24px;
+    text-align: center;
+}
+
+h1 {
+    color: #d32f2f;      /* 番茄红 */
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* 计时器大数字 */
+.timer-display {
+    font-size: 80px;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1.2;
+    margin: 20px 0;
+    font-feature-settings: "tnum";
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 按钮组 */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+button {
+    background: #f8f9fa;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e9ecef;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+button:hover {
+    background: #e9ecef;
+}
+
+#startBtn {
+    background: #d32f2f;
+    color: white;
+    border-color: #b71c1c;
+}
+
+#startBtn:hover {
+    background: #b71c1c;
+}
+
+/* 统计卡片区 */
+.stats {
+    background: #f8f9fa;
+    border-radius: 24px;
+    padding: 24px 20px;
+    margin-top: 24px;
+    border: 1px solid #ffe0b2;
+}
+
+.stats h2 {
+    font-size: 20px;
+    color: #bf360c;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #ffe0b2;
+    font-size: 18px;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #5d4037;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #2c3e50;
+    background: white;
+    padding: 4px 12px;
+    border-radius: 40px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* 提示消息 */
+.message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #2e7d32;
+    min-height: 24px;
+    font-weight: 500;
+}
+
+/* 手机小屏适配 */
+@media (max-width: 400px) {
+    .timer-display {
+        font-size: 64px;
+    }
+    button {
+        padding: 10px 18px;
+        font-size: 16px;
+    }
+}
+/* ===== 新增样式（可直接追加在原有样式后面）===== */
+
+/* 模式切换按钮组 */
+.mode-switch {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.mode-btn {
+    background: #f1f3f4;
+    border: 1px solid #dadce0;
+    border-radius: 40px;
+    padding: 10px 28px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #5f6368;
+    transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background: #d32f2f;
+    color: white;
+    border-color: #b71c1c;
+}
+
+/* 时长设置区域 */
+.duration-section {
+    margin-bottom: 24px;
+    text-align: left;
+    padding: 0 8px;
+}
+
+.duration-label {
+    font-size: 16px;
+    color: #5d4037;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.duration-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.duration-btn {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2c3e50;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    min-width: 70px;
+}
+
+.duration-btn.active {
+    background: #2c3e50;
+    color: white;
+    border-color: #1e2b36;
+}
+
+/* 休息区域初始隐藏，通过JS控制显示 */
+#breakDurationSection {
+    display: none;
+}

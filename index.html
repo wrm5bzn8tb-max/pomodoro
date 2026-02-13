@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的番茄钟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>🍅 自定义番茄钟</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>🍅 番茄钟开工啦</h1>
-    <p>如果浏览器里能看到这行字，说明HTML文件建成功了</p>
+    <div class="container">
+        <h1>🍅 番茄钟</h1>
+
+        <!-- ===== 新增：模式切换 ===== -->
+        <div class="mode-switch">
+            <button id="modeFocusBtn" class="mode-btn active">🍅 专注</button>
+            <button id="modeBreakBtn" class="mode-btn">☕ 休息</button>
+        </div>
+
+        <!-- ===== 新增：专注时长选项 ===== -->
+        <div class="duration-section" id="focusDurationSection">
+            <div class="duration-label">专注时长</div>
+            <div class="duration-buttons">
+                <button data-focus="25" class="duration-btn focus-duration">25</button>
+                <button data-focus="30" class="duration-btn focus-duration">30</button>
+                <button data-focus="40" class="duration-btn focus-duration active">40</button>
+            </div>
+        </div>
+
+        <!-- ===== 新增：休息时长选项 ===== -->
+        <div class="duration-section" id="breakDurationSection" style="display: none;">
+            <div class="duration-label">休息时长</div>
+            <div class="duration-buttons">
+                <button data-break="3" class="duration-btn break-duration">3</button>
+                <button data-break="5" class="duration-btn break-duration active">5</button>
+            </div>
+        </div>
+
+        <!-- 计时器区域（保持不变） -->
+        <div class="timer-display">
+            <span id="minutes">40</span>:<span id="seconds">00</span>
+        </div>
+        
+        <!-- 控制按钮组（保持不变） -->
+        <div class="controls">
+            <button id="startBtn">▶ 开始</button>
+            <button id="pauseBtn">⏸ 暂停</button>
+            <button id="resetBtn">↺ 重置</button>
+        </div>
+
+        <!-- 累计专注统计（保持不变） -->
+        <div class="stats">
+            <h2>📊 累计专注</h2>
+            <div class="stat-item">
+                <span class="stat-label">今日</span>
+                <span class="stat-value" id="todayStat">0h 0m</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">本月</span>
+                <span class="stat-value" id="monthStat">0h 0m</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">本年</span>
+                <span class="stat-value" id="yearStat">0h 0m</span>
+            </div>
+        </div>
+
+        <!-- 提示消息（保持不变） -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
