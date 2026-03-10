@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>🍅 自定义番茄钟</title>
+    <title>🍅 全能番茄钟</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>🍅 番茄钟</h1>
 
-        <!-- ===== 新增：模式切换 ===== -->
+        <!-- 模式切换 -->
         <div class="mode-switch">
             <button id="modeFocusBtn" class="mode-btn active">🍅 专注</button>
             <button id="modeBreakBtn" class="mode-btn">☕ 休息</button>
         </div>
 
-        <!-- ===== 新增：专注时长选项 ===== -->
+        <!-- 专注时长选项（30/40/45） -->
         <div class="duration-section" id="focusDurationSection">
             <div class="duration-label">专注时长</div>
             <div class="duration-buttons">
-                <button data-focus="25" class="duration-btn focus-duration">25</button>
                 <button data-focus="30" class="duration-btn focus-duration">30</button>
                 <button data-focus="40" class="duration-btn focus-duration active">40</button>
+                <button data-focus="45" class="duration-btn focus-duration">45</button>
             </div>
         </div>
 
-        <!-- ===== 新增：休息时长选项 ===== -->
+        <!-- 休息时长选项（3/5） -->
         <div class="duration-section" id="breakDurationSection" style="display: none;">
             <div class="duration-label">休息时长</div>
             <div class="duration-buttons">
@@ -35,19 +35,19 @@
             </div>
         </div>
 
-        <!-- 计时器区域（保持不变） -->
+        <!-- 计时器显示 -->
         <div class="timer-display">
             <span id="minutes">40</span>:<span id="seconds">00</span>
         </div>
-        
-        <!-- 控制按钮组（保持不变） -->
+
+        <!-- 控制按钮 -->
         <div class="controls">
             <button id="startBtn">▶ 开始</button>
             <button id="pauseBtn">⏸ 暂停</button>
             <button id="resetBtn">↺ 重置</button>
         </div>
 
-        <!-- 累计专注统计（保持不变） -->
+        <!-- 累计专注统计 -->
         <div class="stats">
             <h2>📊 累计专注</h2>
             <div class="stat-item">
@@ -64,7 +64,28 @@
             </div>
         </div>
 
-        <!-- 提示消息（保持不变） -->
+        <!-- ===== 新增：通知设置区域 ===== -->
+        <div class="notification-settings">
+            <h2>🔔 通知方式</h2>
+            <div class="notif-options">
+                <label>
+                    <input type="checkbox" id="vibrateCheck" checked> 震动
+                </label>
+                <label>
+                    <input type="checkbox" id="ringCheck" checked> 铃声
+                </label>
+            </div>
+            <div class="ring-upload" id="ringUploadContainer">
+                <label for="ringFile">选择铃声文件（MP3等）</label>
+                <input type="file" id="ringFile" accept="audio/*">
+                <span id="ringFileName" class="file-name"></span>
+                <button id="playTestBtn" class="test-btn">▶ 试听</button>
+                <button id="clearRingBtn" class="clear-btn">✖ 清除</button>
+            </div>
+            <div id="notifMessage" class="notif-message"></div>
+        </div>
+
+        <!-- 提示消息 -->
         <div id="message" class="message"></div>
     </div>
 
